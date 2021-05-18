@@ -1,10 +1,15 @@
 package com.fatec.pwcap04.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.*;
 
 @Entity
@@ -12,6 +17,18 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@OneToMany(
+			mappedBy = "cliente",
+			cascade = CascadeType.ALL,
+			orphanRemoval = true
+	)
+	private List<Locacao> locacao = new ArrayList<>();
+	
+	public void setLocacao(List<Locacao> locacao) {
+		this.locacao = locacao;
+	}
+	
 	@NotNull
 	@Size(min = 11, max = 11, message = "CPF deve ter 11 caracteres")
 	@Column(unique = true) // nao funciona com @Valid tem que tratar na camada de persistencia

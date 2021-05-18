@@ -195,7 +195,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" th:href="@{/locaDev}">
+            <a class="nav-link active" aria-current="page" th:href="@{/sig/locaDev}">
               <span data-feather="file-text"></span>
               Locações e Devoluções
             </a>
@@ -205,7 +205,7 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <br><br><br>
+    <br><br>
     
     <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3" style="background-color: #17C57C; height: 3px;"></div>
       <div class="justify-content-center flex-md-nowrap pb-2 mb-3 align-middle" style="background-color: #F1EEEE; border-color: #17C57C;">
@@ -214,18 +214,19 @@
       </div>
         <br>
         <div class="d-flex justify-content-center">
-        <form>
+        
+        <form action="#" th:action="@{/sig/locaDev}" th:object="${locacao}" method="post">
         	<div class="row">
         		<div class="form-group col">
-    				<label for="exampleFormControlSelect1">Cliente</label>
-   					 <select class="form-control shadow-sm" id="exampleFormControlSelect1">
+    				<label for="cliente">Cliente</label>
+   					 <select class="form-control shadow-sm" id="cliente">
       					<option selected>Selecione...</option>
    					 </select>
  				 </div>
  				 
  				 <div class="form-group col">
-    				<label for="exampleFormControlSelect1">veículo</label>
-   					 <select class="form-control shadow-sm" id="exampleFormControlSelect1">
+    				<label for="veiculo">veículo</label>
+   					 <select class="form-control shadow-sm" id="veiculo">
       					<option selected>Selecione...</option>
    					 </select>
  				 </div>
@@ -233,32 +234,35 @@
         	<br>
         	<div class="row">
         		<div class="form-group col">
-        			<label for="exampleFormControlSelect1">Data de locação</label>
-        			<input class="form-control shadow-sm" type="text" placeholder="30/03/2021" readonly>
+        			<label for="dataLoca">Data de locação</label>
+        			<input th:field="*{dataLoca}" id="dataLoca" class="form-control shadow-sm" type="date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" readonly>
         		</div>
+        		<div class="form-group col">
+        			<label for="exampleFormControlSelect1">Data de devolução</label>
+        			<input th:field="*{dataDevo}" id="dataDevo" class="form-control shadow-sm" type="date" placeholder="">
+        		</div>
+        		
         		<div class="form-group col">
         			<label for="exampleFormControlSelect1">Dias de locação</label>
-        			<input class="form-control shadow-sm" type="text" placeholder="">
+        			<input th:field="*{diasLoca}" id="diasLoca" class="form-control shadow-sm" type="number" placeholder="">
         		</div>
-        		<div class="form-group col">
-        			<label for="exampleFormControlSelect1">Quilometragem permitida</label>
-        			<input class="form-control shadow-sm" type="text" placeholder="" >
-        		</div>
+        		
         	</div>
         	<br>
         	<div class="row">
         		<div class="form-group col">
-        			<label for="exampleFormControlSelect1">Valor do serviço</label>
-        			<input class="form-control shadow-sm" type="text" placeholder="" >
+        			<label for="exampleFormControlSelect1">Quilometragem permitida</label>
+        			<input th:field="*{kmPermitida}" id="kmPermitida" class="form-control shadow-sm" type="text" placeholder="" >
         		</div>
         		<div class="form-group col">
-        			<label for="exampleFormControlSelect1">Data de devolução</label>
-        			<input class="form-control shadow-sm" type="date" placeholder="">
+        			<label for="exampleFormControlSelect1">Valor do serviço</label>
+        			<input th:field="*{precoLoca}" id="precoLoca" class="form-control shadow-sm" type=number step=0.01 min=0 placeholder="" >
         		</div>
+        		
         	</div>
         	<br>
         	<div class="form-group ">
-			<a th:href="@{/locaDev}">
+			<a th:href="@{/sig/locaDev}">
           		<button class="w-100 btn btn-default shadow-sm" style="border-radius: 25px;">Cadastrar</button>
         	</a>
 			</div>
@@ -271,12 +275,23 @@
   </div>
 </div>
 
+	  <script>
+	  
+			var field = document.querySelector('#dataLoca');
+			var date = new Date();
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+			// Set the date
+			field.value = date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) + 
+    		'-' + date.getDate().toString().padStart(2, 0);
+	  
+	  </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
       <script>
+      		
       	
 		/* globals Chart:false, feather:false */
 

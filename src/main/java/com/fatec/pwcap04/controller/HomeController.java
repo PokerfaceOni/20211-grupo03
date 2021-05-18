@@ -37,13 +37,13 @@ public class HomeController {
 	//	return new ModelAndView ("cadastrarCliente");
 	//}
 	
-	@GetMapping("/locaDev")
-	public ModelAndView locacoesDevolucoes() {
-		return new ModelAndView ("locaDev");
-	}
+	//@GetMapping("/locaDev")
+	//public ModelAndView locacoesDevolucoes() {
+	//	return new ModelAndView ("locaDev");
+	//}
 	
 	@GetMapping("/locacoesDevolucoes/cadastroEdicaoLocaDev")
 	public ModelAndView cadastroLocacoesDevolucoes() {
-		return new ModelAndView ("cadastrarEditarLocaDev");
+		return new ModelAndView ("cadastrarLocacao");
 	}
 }

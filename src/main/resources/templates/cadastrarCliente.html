@@ -195,7 +195,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" th:href="@{/locaDev}">
+            <a class="nav-link" th:href="@{/sig/locaDev}">
               <span data-feather="file-text"></span>
               Locações e Devoluções
             </a>
@@ -279,7 +279,7 @@
         		
         		<div class="form-group col">
         			<label for="email">Email</label>
-        			<input th:field="*{email}" id="email" class="form-control shadow-sm" type="text" placeholder="" >
+        			<input th:field="*{email}" id="email" class="form-control shadow-sm" type="email" placeholder="" >
         			
         			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="textdanger">
  					</span>
