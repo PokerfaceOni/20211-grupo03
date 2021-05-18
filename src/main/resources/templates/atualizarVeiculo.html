@@ -248,8 +248,8 @@
         		
         			<label for="disponibilidade">Disponibilidade</label>
    					 <select class="form-control shadow-sm" th:field="*{disponibilidade}" id="disponibilidade">
-      					<option th:value="${disponivel}" th:text="Disponível"></option>
-      					<option th:value="${indisponivel}" th:text="Indisponível"></option>
+      					<option value="Disponivel">Disponível</option>
+      					<option value="Indisponivel">Indisponível</option>
    					 </select>
         			
         			<span th:if="${#fields.hasErrors('disponibilidade')}" th:errors="*{disponibilidade}" class="textdanger">

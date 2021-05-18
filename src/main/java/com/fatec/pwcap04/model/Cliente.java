@@ -19,7 +19,7 @@ public class Cliente {
 	@NotNull
 	@Size(min = 1, max = 50, message = "Nome deve ser preenchido")
 	private String nome;
-	@NotNull
+	@Email (message = "E-mail inválido.")
 	private String email;
 	@NotNull
 	private String rg;
