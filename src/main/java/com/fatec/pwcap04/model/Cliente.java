@@ -18,7 +18,7 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@OneToMany(
+	/*@OneToMany(
 			mappedBy = "cliente",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
@@ -27,7 +27,7 @@ public class Cliente {
 	
 	public void setLocacao(List<Locacao> locacao) {
 		this.locacao = locacao;
-	}
+	}*/
 	
 	@NotNull
 	@Size(min = 11, max = 11, message = "CPF deve ter 11 caracteres")

@@ -19,7 +19,7 @@ public class Veiculo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@OneToMany(
+	/*@OneToMany(
 			mappedBy = "veiculo",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
@@ -28,7 +28,7 @@ public class Veiculo {
 	
 	public void setLocacao(List<Locacao> locacao) {
 		this.locacao = locacao;
-	}
+	}*/
 	
 	@NotNull
 	@Size(min = 7, max = 7, message = "Placa deve ter 7 caracteres")

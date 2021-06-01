@@ -42,8 +42,8 @@ public class HomeController {
 	//	return new ModelAndView ("locaDev");
 	//}
 	
-	@GetMapping("/locacoesDevolucoes/cadastroEdicaoLocaDev")
-	public ModelAndView cadastroLocacoesDevolucoes() {
-		return new ModelAndView ("cadastrarLocacao");
-	}
+	//@GetMapping("/locacoesDevolucoes/cadastroEdicaoLocaDev")
+	//public ModelAndView cadastroLocacoesDevolucoes() {
+	//	return new ModelAndView ("cadastrarLocacao");
+	//}
 }

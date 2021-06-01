@@ -240,8 +240,8 @@
 
             <tr th:each="locacao : ${locacoes}">
               <td th:text="${locacao.id}"></td>
-              <td th:text=""></td>
-              <td th:text=""></td>
+              <td th:text="${locacao.cliente}"></td>
+              <td th:text="${locacao.veiculo}"></td>
               <td th:text="${locacao.dataLoca}"></td>
               <td th:text="${locacao.dataDevo}"></td>
               <td th:text="${locacao.precoLoca}"></td>
