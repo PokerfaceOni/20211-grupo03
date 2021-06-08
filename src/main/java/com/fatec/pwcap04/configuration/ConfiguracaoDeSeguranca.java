@@ -25,7 +25,12 @@ public class ConfiguracaoDeSeguranca  extends WebSecurityConfigurerAdapter {
 	 	//.antMatchers("/livro/cadastrar").hasRole("BIB") //somente login maria
 	 	.anyRequest().authenticated().and()
 	 	.formLogin().loginPage("/login").permitAll().and()
-	 	.logout().logoutSuccessUrl("/login?logout").permitAll();
+	 	//.logout().logoutSuccessUrl("/login?logout").permitAll();
+	 // sample logout customization
+	 	.logout().deleteCookies("remove")
+	 	.invalidateHttpSession(false)
+	 	.logoutUrl("/custom-logout")
+	 	.logoutSuccessUrl("/logout-success");
 	 }
 	
 	 @Override
