@@ -35,9 +35,6 @@ public class Veiculo {
 	@Column(unique = true)
 	private String placa;
 	@NotNull
-	@Size(min = 1, max = 50, message = "Nome deve ser preenchido")
-	private String nome;
-	@NotNull
 	private String cor;
 	@NotNull
 	private String modelo;
@@ -50,11 +47,10 @@ public class Veiculo {
 	public Veiculo() {
 	}
 
-	public Veiculo(@NotNull String nome, @NotNull String cor, @NotNull String modelo,
+	public Veiculo(@NotNull String cor, @NotNull String modelo,
 			@NotNull String marca, @NotNull String placa,
 			@NotNull String disponibilidade, String descAdicio) {
 
-		this.nome = nome;
 		this.cor = cor;
 		this.modelo = modelo;
 		this.marca = marca;
@@ -70,14 +66,6 @@ public class Veiculo {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getCor() {
@@ -167,11 +155,6 @@ public class Veiculo {
 				return false;
 		} else if (!modelo.equals(other.modelo))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
 		if (placa == null) {
 			if (other.placa != null)
 				return false;
@@ -182,7 +165,7 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return "Veiculo [id=" + id + ", nome=" + nome + ", cor=" + cor + ", modelo=" + modelo
+		return "Veiculo [id=" + id + ", cor=" + cor + ", modelo=" + modelo
 				+ ", marca=" + marca + ", placa=" + placa + ", disponibilidade="
 				+ disponibilidade + ", descricoes adicionais=" + descAdicio + "]";
 	}

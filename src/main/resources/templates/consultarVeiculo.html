@@ -229,7 +229,7 @@
           <thead>
             <tr>
               <th>Código</th>
-              <th>Nome</th>
+              <th>Modelo</th>
               <th>Cor</th>
               <th>Placa</th>
               <th>Disponibilidade</th>
@@ -239,7 +239,7 @@
           <tbody>
         	<tr th:each="veiculo : ${veiculos}">
               <td th:text="${veiculo.id}"></td>
-              <td th:text="${veiculo.nome}"></td>
+              <td th:text="${veiculo.modelo}"></td>
               <td th:text="${veiculo.cor}"></td>
               <td th:text="${veiculo.placa}"></td>
               <td th:text="${veiculo.disponibilidade}"></td>

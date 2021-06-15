@@ -76,7 +76,6 @@ public class VeiculoController {
 		umVeiculo.setCor(veiculo.getCor());
 		umVeiculo.setDisponibilidade(veiculo.getDisponibilidade());
 		umVeiculo.setMarca(veiculo.getDisponibilidade());
-		umVeiculo.setNome(veiculo.getNome());
 		umVeiculo.setDescAdicio(veiculo.getDescAdicio());
 		modelAndView = servico.saveOrUpdate(umVeiculo);
 
